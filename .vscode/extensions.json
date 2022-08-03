@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "wix.vscode-import-cost",
+    "esbenp.prettier-vscode",
+    "blanu.vscode-styled-jsx",
+    "chriskirknielsen.visubezier",
+    "csstools.postcss",
+    "bradlc.vscode-tailwindcss",
+    "PeggyJS.peggy-language"
+  ]
+}
