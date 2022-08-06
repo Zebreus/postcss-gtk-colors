@@ -120,11 +120,9 @@ export function gtkAlpha(
   color: RgbColor | HslColor,
   factor: string
 ): RgbColor | HslColor {
-  console.log(`clamp(0, calc( ${color.alpha} * ${factor} ), 1 )`);
   const alpha = minifyCSSCalc(
     `clamp(0, calc( ${color.alpha} * ${factor} ), 1 )`
   );
-  console.log(`clamp(0, calc( ${color.alpha} * ${factor} ), 1 ) = ${alpha}`);
   return { ...color, alpha };
 }
 
@@ -152,19 +150,19 @@ export const getFallbackForCurrentColor = (
   }
 ): RgbColor | HslColor => {
   if (color.type === "inherit") {
-    console.warn(
-      `${warnLocation} with color inherit is not supported. Using ${stringifyColor(
-        fallback
-      )} as a fallback`
-    );
+    // console.warn(
+    //   `${warnLocation} with color inherit is not supported. Using ${stringifyColor(
+    //     fallback
+    //   )} as a fallback`
+    // );
     return fallback;
   }
   if (color.type === "current") {
-    console.warn(
-      `${warnLocation} with currentColor is not supported. Using ${stringifyColor(
-        fallback
-      )} as a fallback`
-    );
+    // console.warn(
+    //   `${warnLocation} with currentColor is not supported. Using ${stringifyColor(
+    //     fallback
+    //   )} as a fallback`
+    // );
     return fallback;
   }
   return color;

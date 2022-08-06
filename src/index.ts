@@ -17,7 +17,6 @@ const convertRule: PluginCreator<{}> = (opts = {}) => {
         });
         atRule.remove();
       });
-      console.log(colors);
 
       const declarations = colors.flatMap(({ name, value }) => {
         const names = getColorNames(name);

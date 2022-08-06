@@ -32,9 +32,7 @@ Color
 
 Root
   = content:RootTemplateContent {
-    const result = {type: "root", text: text(), colors: content.colors}
-    // console.log(result)
-    return result
+    return {type: "root", text: text(), colors: content.colors}
     }
 
 TextColor

@@ -1,5 +1,3 @@
-import { stringify } from "postcss";
-import { parseColor } from "../parseColor";
 import { runParser } from "./runParser";
 
 describe("test parser with normal css color string", () => {
