@@ -1,3 +1,4 @@
+import { processColor } from "../processColor";
 import { runParser } from "./runParser";
 
 describe("test alpha function", () => {
@@ -130,5 +131,15 @@ describe("test mix function", () => {
       blue: "calc((0.4*var(--b-a)*var(--b-b) + 0.6*var(--a-a)*var(--a-b))/(0.4*var(--b-a) + 0.6*var(--a-a)))",
       alpha: "calc(0.4*var(--b-a) + 0.6*var(--a-a))",
     });
+  });
+});
+
+describe("test processColor edgecases", () => {
+  test("throws on unknown color type", async () => {
+    expect(() =>
+      processColor({
+        type: "something else",
+      } as any)
+    ).toThrow();
   });
 });
