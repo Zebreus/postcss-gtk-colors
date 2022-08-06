@@ -148,15 +148,16 @@ describe("test parser with normal css color string", () => {
   });
 
   test("parsing rgb with complex values works", async () => {
-    expect(() => runParser("rgb(0, (), 0)")).not.toThrow();
-    expect(() => runParser("rgb(0, (4+4), 0)")).not.toThrow();
-    expect(() => runParser("rgb(0, (4 + 4), 0)")).not.toThrow();
+    expect(() => runParser("rgb(0, (4), 0)")).toThrow();
+    expect(() => runParser("rgb(0, calc(4), 0)")).not.toThrow();
+    expect(() => runParser("rgb(0, (4+4), 0)")).toThrow();
+    expect(() => runParser("rgb(0, (4 + 4), 0)")).toThrow();
     expect(() => runParser("rgb(0, calc(4+4), 0)")).not.toThrow();
-    expect(() => runParser("rgb(0, randomFunction(), 0)")).not.toThrow();
-    expect(() => runParser("rgb(0, randomFunction(4+4), 0)")).not.toThrow();
-    expect(() => runParser("rgb(0, randomFunction(4 + 4), 0)")).not.toThrow();
-    expect(() => runParser("rgb(0, randomFunction(4,5,6,7), 0)")).not.toThrow();
-    expect(() => runParser("rgb(0, randomFunction(4+(4)), 0)")).not.toThrow();
+    expect(() => runParser("rgb(0, randomFunction(), 0)")).toThrow();
+    expect(() => runParser("rgb(0, randomFunction(4+4), 0)")).toThrow();
+    expect(() => runParser("rgb(0, randomFunction(4 + 4), 0)")).toThrow();
+    expect(() => runParser("rgb(0, randomFunction(4,5,6,7), 0)")).toThrow();
+    expect(() => runParser("rgb(0, randomFunction(4+(4)), 0)")).toThrow();
     expect(() => runParser("rgb(0, var(--toast), 0)")).not.toThrow();
   });
 

@@ -17,7 +17,7 @@ describe("parser works with defined colors", () => {
   test("weird name works as well", async () => {
     expect(runParser("@dark-r")).toRoughlyEqual({
       type: "rgb",
-      red: "var(--dark-r)",
+      red: "var(--dark-r-r)",
       green: "var(--dark-r-g)",
       blue: "var(--dark-r-b)",
       alpha: "var(--dark-r-a)",
