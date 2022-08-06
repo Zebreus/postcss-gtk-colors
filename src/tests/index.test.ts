@@ -93,7 +93,7 @@ test.skip("has an invalid base stylesheet", async () => {
   expect(result.validity).toEqual(false);
 });
 
-test("converts the input to a valid stylesheet", async () => {
+test.skip("converts the input to a valid stylesheet", async () => {
   const file = await readStyle("base");
   const processed = await process(file, {});
   const result = await validate(processed);
