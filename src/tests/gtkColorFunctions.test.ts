@@ -1,6 +1,3 @@
-import { parseCalc } from "parseCalc";
-import { parseColor } from "../parseColor";
-import { gtkAlpha } from "../processColor";
 import { runParser } from "./runParser";
 
 describe("test alpha function", () => {
