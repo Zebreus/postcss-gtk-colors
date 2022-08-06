@@ -112,13 +112,3 @@ test.skip("fixes all @define-color errors", async () => {
   );
   expect(errors).toEqual([]);
 });
-
-test("converts define color", async () => {
-  await run(
-    `@define-color dark_2 #5e5c64;`,
-    await format(
-      `:root {--dark-2-r: 94;--dark-2-g: 92;--dark-2-b: 100;--dark-2-a: 1}`
-    ),
-    {}
-  );
-});

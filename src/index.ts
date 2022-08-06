@@ -1,7 +1,6 @@
 import { getColorNames } from "./getColorNames";
-import { decl, Declaration, PluginCreator, Rule } from "postcss";
+import { Declaration, PluginCreator, Rule } from "postcss";
 import { runParser, runRootParser } from "./tests/runParser";
-import { stringifyColor } from "./processColor";
 
 const convertRule: PluginCreator<{}> = (opts = {}) => {
   // Work with options here
@@ -34,33 +33,9 @@ const convertRule: PluginCreator<{}> = (opts = {}) => {
       const rule = new Rule({ selector: ":root", nodes: declarations });
 
       root.append(rule);
-
-      // const classes = new Set<string>();
-
-      // try {
-
-      //   const cssFileName = root.source?.input.file;
-      //   if (!cssFileName) throw root.error('file source is needed');
-
-      //   buildFile(cssFileName, Array.from(classes));
-      // } catch (error) {
-      //   throw root.error(error);
-      // }
     },
-    // AtRule: {
-    //   "define-color": atRule => {
-    //     console.log("Visited at rule", atRule.name)
-    //     atRule.assign({name: "toast"})
-    //     // All @media at-rules
-    //   }
-    // }
-    /*
-    Root (root, postcss) {
-      // Transform CSS AST here
-    }
-    */
 
-    Declaration(decl, postcss) {
+    Declaration(decl) {
       const value = decl.value;
       const processedValue = runRootParser(value);
       decl.value = processedValue;
