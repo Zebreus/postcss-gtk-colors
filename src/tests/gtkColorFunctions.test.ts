@@ -134,6 +134,18 @@ describe("test mix function", () => {
   });
 });
 
+describe("test shade function", () => {
+  test("shade does something expected", async () => {
+    expect(runParser("shade(#f00,1)")).toRoughlyEqual({
+      type: "rgb",
+      red: 255,
+      green: 255,
+      blue: 255,
+      alpha: 1,
+    });
+  });
+});
+
 describe("test processColor edgecases", () => {
   test("throws on unknown color type", async () => {
     expect(() =>
